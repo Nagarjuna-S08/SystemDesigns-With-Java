@@ -1,12 +1,13 @@
 package CalenderSystem;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class CalenderSystem {
 
     static Scanner sc = new Scanner(System.in);
     static Serives obj = new Serives();
-    static String currentDate = "01 Apr 2025";
+    static String currentDate = "1 Jun 2025";
 
     public static void main(String[] args) {
 
@@ -38,6 +39,9 @@ public class CalenderSystem {
                     break;
                 }
                 case 3:{
+//                    LocalDate dateNow = LocalDate.now();
+//                    StringBuilder sb = new StringBuilder("01 "+dateNow.getMonth().name().substring(0,4)+" "+dateNow.getYear());
+//                    currentDate=sb.replace(1,4, sb.substring(1,4).toLowerCase()).toString();
                     obj.currentMonthSheetPrep(currentDate);
                     break;
                 }
