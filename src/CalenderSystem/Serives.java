@@ -8,7 +8,7 @@ public class Serives {
     private final static HashMap<String,Integer> monthCodes = new HashMap<>();
     private final static HashMap<Integer,Integer> yearCodes = new HashMap<>();
 
-    private final static int[][] monthMatrix = new int[6][7];
+    private final static int[][] monthMatrix = new int[5][7];
     private final static ArrayList<String> dayIdentifyArray = new ArrayList<>();
     private final static HashMap<String,Integer> monthDates = new HashMap<>();
     private final static ArrayList<String> monthIdentifyArray = new ArrayList<>();
@@ -144,6 +144,16 @@ public class Serives {
         }
         System.out.println();
 
+//        int k = 0;
+//        for (int i = monthMatrix.length-1; i <= monthMatrix.length-1 ; i++) {
+//            for (int j = 0; j < monthMatrix[0].length; j++) {
+//                if(monthMatrix[i][j] > 0 && monthMatrix[0][j]==0){
+//                    monthMatrix[0][j] = monthMatrix[i][j];
+//                    monthMatrix[i][j] = 0;
+//                }
+//            }
+//        }
+
         for (int i = 0; i < monthMatrix.length; i++) {
             for (int j = 0; j < monthMatrix[i].length; j++) {
                 if (monthMatrix[i][j] == 0) {
@@ -177,7 +187,7 @@ public class Serives {
             i++;
         }
 
-        while (i<6){
+        while (i<5){
             j=0;
             while (j<7){
                 monthMatrix[i][j]=cnt++;
@@ -190,6 +200,18 @@ public class Serives {
                 j++;
             }
             i++;
+        }
+        j=0;
+        while (j<7){
+
+            if(cnt>noOfDays){
+                displayMonth = month ;
+                displayYear = year;
+                printMonth();
+                return;
+            }
+            monthMatrix[0][j]=cnt++;
+            j++;
         }
     }
 
@@ -220,7 +242,7 @@ public class Serives {
     }
 
     public void fillRemainingToZero(int i,int j){
-        while (i<6){
+        while (i<5){
             while (j<7){
                 monthMatrix[i][j]=0;
                 j++;
